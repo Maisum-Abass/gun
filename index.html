@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <style type="text/css" media="all">
+    body {
+  height: 90vh;
+  width: 90vw;
+  background:black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   width: 250px;
+  height: 250px;
+ background-color:#F8655D;
+ 
+}
+
+.main{
+  height: 100px;
+  width: 75px;
+  display: grid;
+  row-gap: 2px;
+  column-gap: .1px;
+}
+.loader{
+  box-shadow: 3px 3px 10px .1px;
+  grid-column: 1/ span 3;
+  grid-row: 1/span 2;
+  height: 15px;
+  width: 83px;
+  background: silver;
+  border: solid black 1px;
+}
+#toggle{
+  content: " ";
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  top: auto;
+  background: silver;
+  border-radius: 50%;
+
+}
+.main::after{
+  content: " ";
+  height: 10px;
+  width: 15px;
+  position: absolute;
+  top: auto;
+  border: solid 1px black;
+  background: #787176;
+}
+.loader::after{
+  content: " ";
+  height: 2px;
+  width: 60px;
+  position: absolute;
+  top: 38vh;
+  left: 43vw;
+  box-shadow: 1px 3px 5px .1px;
+  background: black;
+}
+.bullet{
+  grid-row: 2/span 3;
+  grid-column: 1;
+  height: 35px;
+  width: 15px;
+  background: silver;
+  border: solid black 1px;
+  box-shadow: 3px 3px 10px .1px;
+}
+.bullet::before{
+  content: " ";
+  height: 7px;
+  width: 7px;
+   display: flex;
+  position: absolute;
+  top: 43vh;
+  left: 42vw;
+  background: #787176;
+  border-radius: 50%;
+  border: solid black 1px;
+}
+.trigger{
+  grid-row: 2;
+  grid-column: 2;
+  display: flex;
+  justify-content: center;
+  height: 16px;
+  width: 20px;
+  border: solid black 1px;
+  /*background-color: black;*/
+  box-shadow: 3px 3px 10px .1px;
+}
+input{
+  background: #2D3033;
+  color: white;
+}
+.trigger::before{
+  content: " ";
+  height: 11px;
+  width: 4px;
+  position: absolute;
+  top: auto;
+  background: silver;
+  border-radius: 50%;
+  border: solid black 1px;
+}
+  </style>
+  <body>
+        
+       <div class="container">
+        <div class="gun">
+          
+          <div class="main">
+            
+          <div class="loader">
+            <span id="toggle"></span>
+          </div>
+          <div class="bullet">
+            
+           </div>
+          <div class="trigger">
+            </div>
+        </div>
+            <input type="button" name="shoot" id="shoot" value="shoot" />
+            <input type="button" name="reset" id="reset" value="reset" />
+    </div> 
+</div>
+  <script>
+   
+let btn = document.querySelector("#shoot");
+let tgle = document.querySelector("#toggle");
+let rst = document.querySelector("#reset");
+btn.addEventListener('click', ()=>{
+  tgle.style.transitionDuration = ".5s";
+    tgle.style.transform = "translateX(350px)";
+   
+})
+rst.addEventListener('click', ()=>{
+// btn.style.display = "none";
+    tgle.style.transform = "initial";
+   
+})
+  </script>
+  </body>
+</html>
